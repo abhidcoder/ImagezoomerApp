@@ -1,5 +1,5 @@
 
-#NOTE : This Project was developed in conda environment
+#NOTE : This Project was developed in conda virtual environment
 
 This is Configured only for Local Machine for now 
 
