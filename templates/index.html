@@ -1,0 +1,68 @@
+<html>
+<head>
+<title style="text-align:center; margin-top:40px;">Upload, Display & Zoom image using Flask</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src='../static/jquery-1.8.3.min.js '></script>
+<script src='../static/jquery.elevatezoom.js'></script>
+</head>
+<body>
+<p><h1 style="text-align:center; margin-top:40px;">Upload, Display & Zoom image using Flask</h1></p>
+<div class="container">
+<div class="row">
+    <h2 style="text-align:center;">Select a file to upload</h2>
+    <br></br>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <br></br>
+            <div style="text-align:center;">
+            <img id="img-container" width="181" height="120" class="zoom-img" src="{{ url_for('display_image', filename=filename) }}" >
+        </div>
+        <br></br>
+        <h2 style="text-align:center; color:blue;">{{passed}}</h2>
+        <h4 style="text-align:center; color:red;">Hover on the image to zoom</h4>
+        <br></br>
+        <script>
+            $('#img-container').elevateZoom(); 
+        </script>
+           
+        </div>
+    {% endif %}
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <div style="text-align:center;">
+            
+            <input type="submit" value="Submit" class="btn btn-danger">
+        </div>
+    </form>
+</div>
+</div>
+<div style="text-align:center; color:brown; margin-top:85px;">
+<h1>Made by : Abhishek Kumar Singh</h1>
+</div>
+</body>
+</html>
+
+<!--<script>
+    $('#zoom-box').elevateZoom({
+    zoomType: "inner",
+cursor: "crosshair",
+zoomWindowFadeIn: 500,
+zoomWindowFadeOut: 750
+   }); 
+</script>-->
