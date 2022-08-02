@@ -1,6 +1,8 @@
 
 #NOTE : This Project was developed in conda environment
 
+This is Configured only for Local Machine for now 
+
 Step 1-> Clone this Repository
 Step 2-> Just run " python app.py " for it to run
 
